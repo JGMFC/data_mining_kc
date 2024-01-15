@@ -264,7 +264,7 @@ y nos devuelva los 5 más similares de:
 ------------------------------------------------------------------------
 
 ```{r}
-df_madrid_clean <- na.omit(df_madrid[,c('Accommodates'
+df_madrid  <- na.omit(df_madrid[,c('Accommodates'
                                             ,'Bathrooms'
                                             ,'Bedrooms'
                                             ,'Beds'
@@ -277,7 +277,7 @@ df_madrid_clean <- na.omit(df_madrid[,c('Accommodates'
                                             ,'Square.Meters')])
 
 #Aplicamos PCA
-pca <- prcomp(df_madrid_clean, center=TRUE, scale.=TRUE)
+pca <- prcomp(df_madrid , center=TRUE, scale.=TRUE)
 str(pca)
 ```
 
@@ -286,8 +286,8 @@ piso_test<-data.frame(Accommodates=4,Bathrooms=1,Bedrooms=3,Beds=4,Price=80,Gues
 
 piso_test_pca <- predict(pca, piso_test)
 
-distance <- dist(rbind(piso_test_pca, predict(pca, newdata=df_madrid_clean)))
-df_madrid_clean$distance <- distancia[1:nrow(df_madrid_clean)]
-top_5 <- df_madrid_clean[1:5,]
+distance <- dist(rbind(piso_test_pca, predict(pca, newdata=df_madrid )))
+df_madrid $distance <- distancia[1:nrow(df_madrid )]
+top_5 <- df_madrid [1:5,]
 top_5
 ```
